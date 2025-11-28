@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JM Security — Segurança Particular & Eventos</title>
+  <meta name="description" content="JM Security — Serviços de segurança particular, eventos, portaria e vigias. Profissionais treinados e atendimento 24h.">
+  <link rel="icon" href="logo_JM_security.png" type="image/png">
+
+  <style>
+    :root{
+      --bg1:#0b0c0f;
+      --bg2:#15171b;
+      --accent:#00bfff;
+      --gold:#565656;
+      --muted:#bfc6cc;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: "Inter", Arial, sans-serif;
+      background: linear-gradient(180deg,var(--bg1),var(--bg2));
+      color:#fff;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    /* header */
+    header{
+      position:sticky;top:0;
+      background:linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.25));
+      backdrop-filter: blur(6px);
+      border-bottom:1px solid rgba(255,255,255,0.03);
+      z-index:40;
+      padding:12px 18px;
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+    .logo img{ width:170px; height:auto; display:block; filter: drop-shadow(0 6px 18px rgba(0,191,255,0.08)); }
+
+    nav{ margin-left:auto; display:flex; gap:12px; align-items:center }
+    nav a{ color:var(--muted); text-decoration:none; padding:8px 12px; border-radius:8px; font-weight:600}
+    nav a:hover{ color:#fff; background:rgba(255,255,255,0.03) }
+
+    /* hero */
+    .hero{
+      padding:36px 18px;
+      display:flex;
+      gap:28px;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .hero-text{ max-width:720px; }
+    .badge{ display:inline-block; background:rgba(0,191,255,0.08); color:var(--accent); padding:6px 10px; border-radius:999px; font-weight:700; margin-bottom:12px }
+    h1{ font-size:2.1rem; color:var(--gold); margin-bottom:12px }
+    p.lead{ color:var(--muted); margin-bottom:18px; line-height:1.5 }
+
+    .cta-row{ display:flex; gap:12px; flex-wrap:wrap }
+    .btn{ background:var(--accent); color:#fff; padding:12px 18px; border-radius:12px; text-decoration:none; font-weight:700; display:inline-flex; gap:8px; align-items:center; transition: background .2s ease, transform .2s ease; }
+    .btn:hover { transform: translateY(-3px); }
+    .btn.secondary{ background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted) }
+    .btn.secondary:hover{ color:#fff; background:rgba(255,255,255,0.05) }
+
+    /* serviços / cards */
+    .container{ padding:22px 18px 120px; max-width:1100px; margin:0 auto; width:100% }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap:18px;
+    }
+
+    /* Em telas grandes (desktop), 4 colunas fixas */
+    @media (min-width: 1000px){
+      .grid{
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:14px; padding:18px; box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      border:1px solid rgba(255,255,255,0.025);
+      transition: transform .22s ease, box-shadow .22s ease;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .card:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,0.7) }
+    .card .title{ color:var(--gold); font-weight:800; margin-bottom:8px }
+    .price{ color:var(--accent); font-size:1.5rem; font-weight:800; margin-bottom:8px }
+    .desc{ color:var(--muted); margin-bottom:12px }
+
+    /* about */
+    .about{ display:flex; gap:18px; align-items:center; margin:28px 0; flex-wrap:wrap }
+    .about .box{ flex:1; min-width:240px; color:var(--muted) }
+
+    /* contato */
+    .contact-card{ margin-top:18px; padding:16px; border-radius:12px; background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.16)); border:1px solid rgba(255,255,255,0.02) }
+    .contact-list p{ color:var(--muted); margin:8px 0 }
+
+    /* whatsapp flutuante */
+    .whatsapp-float img{ width:34px; height:34px; filter: drop-shadow(0 3px 12px rgba(0,0,0,0.4)); }
+
+    footer{
+      margin-top:auto; padding:18px; text-align:center; color:var(--muted);
+      border-top:1px solid rgba(255,255,255,0.02); background:transparent;
+    }
+
+    /* responsivo */
+    @media (max-width:760px){
+      h1{ font-size:1.6rem }
+      .logo img{ width:140px }
+      header{ padding:10px }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo"><img src="logo JM security.png" alt="JM Security"></div>
+    <nav>
+      <a href="#servicos">Serviços</a>
+      <a href="#sobre">Sobre nós</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <div class="badge">Proteção & Confiança</div>
+      <h1>JM Security — Segurança Particular e para Eventos</h1>
+      <p class="lead">Soluções sob medida para eventos, portaria e proteção pessoal. Atendemos em Porto Alegre e região.</p>
+      <div class="cta-row">
+        <a class="btn" href="https://wa.me/555185442147?text=Olá!%20Tenho%20interesse%20nos%20serviços%20da%20JM%20Security." target="_blank">💬 Contratar via WhatsApp</a>
+        <a class="btn secondary" href="#servicos">Ver serviços</a>
+      </div>
+    </div>
+
+    <div class="hero-illustration" aria-hidden="true" style="min-width:240px; opacity:.95">
+      <svg width="220" height="160" viewBox="0 0 220 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="220" height="160" rx="12" fill="rgba(255,255,255,0.02)"/>
+        <text x="20" y="90" fill="rgba(255,255,255,0.06)" font-size="20" font-family="Arial">JM SECURITY</text>
+      </svg>
+    </div>
+  </section>
+
+  <main class="container">
+    <section id="servicos">
+      <h2 style="color:var(--gold);margin-bottom:14px">Nossos Serviços</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="title">Segurança para Eventos</div>
+          <div class="price">R$ 180 / por hora</div>
+          <div class="desc">Prevenção em shows, casamentos e eventos corporativos.</div>
+          <a class="btn" href="https://wa.me/555185442147?text=Olá!%20Tenho%20interesse%20em%20segurança%20para%20eventos." target="_blank">Contratar</a>
+        </article>
+
+        <article class="card">
+          <div class="title">Serviço Particular</div>
+          <div class="price">R$ 2.400 / mensal</div>
+          <div class="desc">Proteção pessoal 24h, deslocamento seguro e profissional treinado para proteção executiva e residencial.</div>
+          <a class="btn" href="https://wa.me/555185442147?text=Olá!%20Tenho%20interesse%20em%20serviço%20particular." target="_blank">Contratar</a>
+        </article>
+
+        <article class="card">
+          <div class="title">Portaria e Monitoramento</div>
+          <div class="price">Consulte valor</div>
+          <div class="desc">Serviço de portaria e inspeção, com relatórios e rondas periódicas para condomínios e empresas.</div>
+          <a class="btn" href="https://wa.me/555185442147?text=Olá!%20Quero%20informações%20sobre%20portaria." target="_blank">Contratar</a>
+        </article>
+
+        <article class="card">
+          <div class="title">Eventos e Shows (Equipe de 10 pessoas)</div>
+          <div class="price">R$ 3.000</div>
+          <div class="desc">Equipe completa de seguranças para grandes eventos e shows, com controle de acesso e vigilância.</div>
+          <a class="btn" href="https://wa.me/555185442147?text=Olá!%20Tenho%20interesse%20em%20equipe%20para%20eventos%20e%20shows." target="_blank">Contratar</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="sobre" class="about" style="margin-top:28px">
+      <div class="box">
+        <h3 style="color:var(--gold);margin-bottom:8px">Sobre a JM Security</h3>
+        <p class="desc">Empresa com profissional qualificado, equipamentos modernos e soluções personalizadas. Atendimento rápido e prioridade em prevenção e integridade.</p>
+      </div>
+      <div class="box contact-card">
+        <h4 style="color:var(--accent)">Atendimento</h4>
+        <div class="contact-list">
+          <p>📞 Telefone: (51) 98544-2147</p>
+          <p>📱 WhatsApp: <a style="color:#fff;text-decoration:underline" href="https://wa.me/555185442147" target="_blank">Clique para conversar</a></p>
+          <p>📧 E-mail: contato@jmsecurity.com</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" style="margin-top:22px">
+      <h3 style="color:var(--gold);margin-bottom:10px">Fale conosco</h3>
+      <div class="contact-card">
+        <p class="desc">Quer orçamento ou tem dúvida? Clique no WhatsApp ou envie um e-mail.</p>
+        <a class="btn" href="https://wa.me/555185442147?text=Olá!%20Quero%20um%20orçamento%20e%20mais%20informações." target="_blank">💬 Abrir WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- WhatsApp flutuante com escolha de número -->
+  <div class="whatsapp-float" style="position:fixed; right:18px; bottom:92px; z-index:9999;">
+    <button id="whatsapp-btn" style="width:62px; height:62px; border-radius:50%; background:linear-gradient(180deg,#25D366,#1ebe5d); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(0,0,0,0.45);">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" style="width:34px; height:34px;">
+    </button>
+    <div id="whatsapp-menu" style="display:none; position:absolute; bottom:70px; right:0; background:rgba(0,0,0,0.85); border-radius:12px; padding:10px; display:flex; flex-direction:column; gap:10px;">
+      <a href="https://wa.me/555185442147?text=Olá!%20Tenho%20interesse%20nos%20serviços%20da%20JM%20Security." target="_blank" style="color:#fff; text-decoration:none; background:linear-gradient(180deg,#25D366,#1ebe5d); padding:8px 12px; border-radius:8px; font-weight:700; text-align:center;">WhatsApp 1</a>
+      <a href="https://wa.me/555181454642?text=Olá!%20Tenho%20interesse%20nos%20serviços%20da%20JM%20Security." target="_blank" style="color:#fff; text-decoration:none; background:linear-gradient(180deg,#25D366,#1ebe5d); padding:8px 12px; border-radius:8px; font-weight:700; text-align:center;">WhatsApp 2</a>
+    </div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('whatsapp-btn');
+    const menu = document.getElementById('whatsapp-menu');
+    btn.addEventListener('click', () => {
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    });
+  </script>
+
+  <footer>
+    © 2025 JM Security — Segurança Particular & Eventos — Porto Alegre<br>
+    <small style="color:var(--muted)">Siga-nos: Instagram • Facebook</small>
+  </footer>
+</body>
+</html>
